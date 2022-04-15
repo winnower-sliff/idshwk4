@@ -1,4 +1,3 @@
-```zeek
 event http_reply(c: connection, version: string, code: count, reason: string)
 {
 
@@ -49,4 +48,3 @@ event zeek_init()
                     	}
                       ]);
     }
-```
