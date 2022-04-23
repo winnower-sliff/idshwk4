@@ -46,7 +46,7 @@ event zeek_init()
                 			}
                   
                   
-                        	for(i in re)delete re[i];
+                        	# for(i in re)delete re[i];
                     	}
                       ]);
     }
