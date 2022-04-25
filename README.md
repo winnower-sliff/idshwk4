@@ -35,15 +35,15 @@ event zeek_init()
                     	{
                     		# print re;
                     		
-                			for(i in re)
-                			{
-                				if(i$str=="404" && re[i]$sum>2)
-                				{
-                					local sumOfAll:double=re[SumStats::Key($str="all",$host=i$host)]$sum;
-                					if(re[i]$sum*5>sumOfAll && re[i]$unique*2>re[i]$sum)
-                						print fmt("%s is a scanner with %.0f scan attemps on %.0f urls",i$host,re[i]$sum,re[i]$unique);
-                				}
-                			}
+				for(i in re)
+				{
+					if(i$str=="404" && re[i]$sum>2)
+					{
+						local sumOfAll:double=re[SumStats::Key($str="all",$host=i$host)]$sum;
+						if(re[i]$sum*5>sumOfAll && re[i]$unique*2>re[i]$sum)
+							print fmt("%s is a scanner with %.0f scan attemps on %.0f urls",i$host,re[i]$sum,re[i]$unique);
+					}
+				}
                   
                   
                         	# for(i in re)delete re[i];
