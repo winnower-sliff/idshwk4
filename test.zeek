@@ -2,12 +2,12 @@ event http_reply(c: connection, version: string, code: count, reason: string)
 {
 
 	SumStats::observe("responses",  						# 观察器名称
-                      SumStats::Key($str="all",$host=c$id$resp_h),		# 添加键，可用key$host访问
+                      SumStats::Key($str="all",$host=c$id$orig_h),		# 添加键，可用key$host访问
                       SumStats::Observation($num=1));		# 统计数
 	if(code==404)
 	{
 		SumStats::observe("responses",  						# 观察器名称
-	                      SumStats::Key($str="404",$host=c$id$resp_h),		# 添加键，可用key$host访问
+	                      SumStats::Key($str="404",$host=c$id$orig_h),		# 添加键，可用key$host访问
 	                      SumStats::Observation($num=1,$str=c$http$uri));		# 统计数
 	}
 	
